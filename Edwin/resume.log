@@ -903,7 +903,7 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 101.
 Here is how much of TeX's memory you used:
  27954 strings out of 428408
  481057 string characters out of 3156740
- 605201 words of memory out of 3000000
+ 605198 words of memory out of 3000000
  31117 multiletter control sequences out of 15000+200000
  6496 words of font info for 74 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191

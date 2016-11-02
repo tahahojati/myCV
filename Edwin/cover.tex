@@ -1,0 +1,128 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Authors:
+% Claud D. Park <posquit0.bj@gmail.com>
+% Lars Richter <mail@ayeks.de>
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+\usepackage{hyperref}
+% Configure page margins with geometry
+% \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-red}
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+\name{Taha }{Pourjalali}
+\position{Web Developer {\enskip\cdotp\enskip}Database Developer}
+%\address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
+
+\mobile{(808)232-8467} 
+\email{taha@hawaii.edu}
+\homepage{tahahojati.github.io}
+\github{tahahojati}
+\linkedin{taha-pourjalali-2a2600b8}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{@twit}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \extrainfo{extra informations}
+
+%\quote{``Be the change that you want to see in the world."}
+
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	All of the below lines must be filled out
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+  {University of Hawaii Cancer Center}
+  {     
+  	 }
+% The date on the letter, default is the date of compilation
+\letterdate{\today}
+% The title of the letter
+\lettertitle{Job Application for Software Engineer}
+% How the letter is opened
+\letteropening{Dear Mr. Okiyama,}
+% How the letter is closed
+\letterclosing{Sincerely,}
+% Any enclosures with the letter
+\letterenclosure[Attached]{Resume}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal informations
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  {Taha Pourjalali~~~·~~~Cover Letter}
+  {}
+
+% Print the title with above letter informations
+\makelettertitle
+
+%-------------------------------------------------------------------------------
+%	LETTER CONTENT
+%-------------------------------------------------------------------------------
+\begin{cvletter}
+
+It is my pleasure to submit my resume for the advertised software engineer position. I recently graduated from the University of Hawaii at Manoa (UHM) with a bachelor’s of science in physics. Due to my interest to computer science, I have engaged in learning and implementing computer programming in the last four years.
+
+I first learned computer programming, C++, and web development in high school.  In my freshman and sophomore years at UHM, I worked in a bioinformatics lab as an assistant analyst. During that time, my responsibility was to design and maintain a MySQL database of genetic elements and to create a public front end for it using PHP programming language on an Apache web server. As part of my education at UHM, I took courses in Java Programing, Algorithm Analysis, and Discreet Mathematics from Computer Science Department at UHM.  Last April, I completed an online degree on Udacity.com focused on Front-End web development using HTML5, CSS3, and JavaScript. As part of this program, I was also introduced to techniques of website optimization.  Currently I work as an application developer for CRDG office at UH Manoa where I have developed a database backed web application for a citizen science project.  I have provided links to some of my projects on my personal portfolio website at: tahahojati.github.io.
+
+I am passionate about writing beautiful and bug free code and I believe I would be great addition to your group. 
+
+
+\end{cvletter}
+
+
+%-------------------------------------------------------------------------------
+% Print the signature and enclosures with above letter informations
+\makeletterclosing
+
+\end{document}

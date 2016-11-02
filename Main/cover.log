@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.5.23)  15 JUN 2016 17:53
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.5.23)  2 NOV 2016 10:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -834,43 +834,44 @@ LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
 LaTeX Font Info:    Font shape `EU1/SourceSansPro(2)/m/sl' in size <10> not ava
 ilable
 (Font)              Font shape `EU1/SourceSansPro(2)/m/it' tried instead on inp
-ut line 129.
+ut line 139.
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+
+ []
+
 [1
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
+ [2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
  (./cover.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 131.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 131.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 141.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 141.
  ) 
 Here is how much of TeX's memory you used:
  27873 strings out of 493638
  483096 string characters out of 6146796
- 593355 words of memory out of 5000000
+ 596355 words of memory out of 5000000
  31012 multiletter control sequences out of 15000+600000
  7105 words of font info for 86 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 53i,11n,68p,10402b,328s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,11n,68p,10402b,329s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on cover.pdf (1 page).
+Output written on cover.pdf (2 pages).

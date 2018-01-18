@@ -10,7 +10,7 @@
 %
 % Notes:
 % 1) This class file defines the structure and layout of the template file (cv.tex, resume.tex).
-% 2) It has been written in such a way that under most circumstances you 
+% 2) It has been written in such a way that under most circumstances you
 % should not need to edit it.
 %
 % Class license:
@@ -21,7 +21,7 @@
 %-------------------------------------------------------------------------------
 %                Identification
 %-------------------------------------------------------------------------------
-\ProvidesClass{awesome-cv}[2016/01/30 v1.5 Awesome Curriculum Vitae Class]
+\ProvidesClass{awesome-cv}[2017/02/05 v1.6.1 Awesome Curriculum Vitae Class]
 \NeedsTeXFormat{LaTeX2e}
 
 
@@ -71,14 +71,17 @@
 % To support LaTeX quoting style
 \defaultfontfeatures{Ligatures=TeX}
 % Needed to manage math fonts
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+\RequirePackage{unicode-math}
 % Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
 \RequirePackage{fontawesome}
+\RequirePackage[default,opentype]{sourcesanspro}
+% Needed for the photo ID
+\RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
 % Needed to deal hyperlink
-\RequirePackage[hidelinks]{hyperref}
+\RequirePackage[hidelinks,unicode]{hyperref}
 \hypersetup{%
 	pdftitle={},
 	pdfauthor={},
@@ -157,6 +160,8 @@
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
+% Set the FontAwesome font to be up-to-date.
+\newfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
 Path=\@fontdir,
@@ -174,60 +179,29 @@ BoldFont=*-Medium,
 BoldItalicFont=*-MediumItalic,
 ]{Roboto}
 
-% Set font for footer (default is Source Sans Pro)
-\newfontfamily\footerfont[
-Path=\@fontdir,
-UprightFont=*-Regular,
-ItalicFont=*-It,
-BoldFont=*-Bold
-]{SourceSansPro}
-
-% Set font for body (default is Source Sans Pro)
-\newfontfamily\bodyfont[
-Path=\@fontdir,
-UprightFont=*-Regular,
-ItalicFont=*-It,
-BoldFont=*-Bold,
-BoldItalicFont=*-BoldIt
-]{SourceSansPro}
-
-\newfontfamily\bodyfontlight[
-Path=\@fontdir,
-UprightFont=*-Light,
-ItalicFont=*-LightIt,
-BoldFont=*-Semibold,
-BoldItalicFont=*-SemiboldIt
-]{SourceSansPro}
-
-% Set main font
-\setmainfont[
-Path=\@fontdir,
-UprightFont=*-Regular,
-ItalicFont=*-It,
-BoldFont=*-Bold,
-BoldItalicFont=*-BoldIt
-]{SourceSansPro}
-
+\newcommand*{\footerfont}{\sourcesanspro}
+\newcommand*{\bodyfont}{\sourcesanspro}
+\newcommand*{\bodyfontlight}{\sourcesansprolight}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{20pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{20pt}{1em}\headerfont\bfseries\color{text} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
-\newcommand*{\sectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
 \newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext}\bf #1}}
+\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
@@ -263,6 +237,23 @@ BoldItalicFont=*-BoldIt
 %-------------------------------------------------------------------------------
 %                Commands for personal information
 %-------------------------------------------------------------------------------
+% Define photo ID
+% Usage: \photo[circle|rectangle,edge|noedge,left|right]{<path-to-image>}
+\newcommand{\photo}[2][circle,edge,left]{%
+	\def\@photo{#2}
+	\@for\tmp:=#1\do{%
+		\ifthenelse{\equal{\tmp}{circle} \or \equal{\tmp}{rectangle}}%
+		{\let\@photoshape\tmp}{}%
+		\ifthenelse{\equal{\tmp}{edge} \or \equal{\tmp}{noedge}}%
+		{\let\@photoedge\tmp}{}%
+		\ifthenelse{\equal{\tmp}{left} \or \equal{\tmp}{right}}%
+		{\let\@photoalign\tmp}{}%
+	}%
+}
+\def\@photoshape{circle}
+\def\@photoedge{edge}
+\def\@photoalign{left}
+
 % Define writer's name
 % Usage: \name{<firstname>}{<lastname>}
 % Usage: \firstname{<firstname>}
@@ -297,6 +288,10 @@ BoldItalicFont=*-BoldIt
 % Defines writer's github (optional)
 % Usage: \github{<github-nick>}
 \newcommand*{\github}[1]{\def\@github{#1}}
+
+% Defines writer's gitlab (optional)
+% Usage: \gitlab{<gitlab-nick>}
+\newcommand*{\gitlab}[1]{\def\@gitlab{#1}}
 
 % Defines writer's stackoverflow profile (optional)
 % Usage: \stackoverflow{<so userid>}{<so username>}
@@ -405,8 +400,35 @@ BoldItalicFont=*-BoldIt
 %-------------------------------------------------------------------------------
 % Define a header for CV
 % Usage: \makecvheader
-\newcommand*{\makecvheader}{%
-	\begin{center}
+\newcommand*{\makecvheader}[1][C]{%
+	\newcommand*{\drawphoto}{%
+		\ifthenelse{\isundefined{\@photo}}{}{%
+			\newlength{\photodim}
+			\ifthenelse{\equal{\@photoshape}{circle}}%
+			{\setlength{\photodim}{1.3cm}}%
+			{\setlength{\photodim}{1.8cm}}%
+			\ifthenelse{\equal{\@photoedge}{edge}}%
+			{\def\@photoborder{darkgray}}%
+			{\def\@photoborder{none}}%
+			\begin{tikzpicture}%
+			\node[\@photoshape, draw=\@photoborder, line width=0.3mm, inner sep=\photodim, fill overzoom image=\@photo] () {};
+			\end{tikzpicture}
+		}%
+	}
+	\newlength{\headertextwidth}
+	\newlength{\headerphotowidth}
+	\ifthenelse{\isundefined{\@photo}}{
+		\setlength{\headertextwidth}{\textwidth}
+		\setlength{\headerphotowidth}{0cm}
+	}{%
+		\setlength{\headertextwidth}{0.76\textwidth}
+		\setlength{\headerphotowidth}{0.24\textwidth}
+	}%
+	\begin{minipage}[c]{\headerphotowidth}%
+		\ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
+	\end{minipage}
+	\begin{minipage}[c]{\headertextwidth}
+		\ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
 		\headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}%
 		\\[\acvHeaderAfterNameSkip]%
 		\ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\[\acvHeaderAfterPositionSkip]}}%
@@ -437,6 +459,12 @@ BoldItalicFont=*-BoldIt
 			{%
 				\ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
 				\href{https://github.com/\@github}{\faGithubSquare\acvHeaderIconSep\@github}%
+			}%
+			\ifthenelse{\isundefined{\@gitlab}}%
+			{}%
+			{%
+				\ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+				\href{https://gitlab.com/\@gitlab}{\faGitlab\acvHeaderIconSep\@gitlab}%
 			}%
 			\ifthenelse{\isundefined{\@stackoverflowid}}%
 			{}%
@@ -484,7 +512,10 @@ BoldItalicFont=*-BoldIt
 		\ifthenelse{\isundefined{\@quote}}%
 		{}%
 		{\headerquotestyle{\@quote\\}\vspace{\acvHeaderAfterQuoteSkip}}%
-	\end{center}%
+	\end{minipage}%
+	\begin{minipage}[c]{\headerphotowidth}%
+		\ifthenelse{\equal{\@photoalign}{right}}{\raggedleft\drawphoto}{}
+	\end{minipage}
 }
 
 % Define a footer for CV
@@ -493,7 +524,7 @@ BoldItalicFont=*-BoldIt
 	\fancyfoot{}
 	\fancyfoot[L]{\footerstyle{#1}}
 	\fancyfoot[C]{\footerstyle{#2}}
-	\fancyfoot[R]{\footerstyle{#3}} 
+	\fancyfoot[R]{\footerstyle{#3}}
 }
 
 % Define a section for CV
@@ -520,8 +551,8 @@ BoldItalicFont=*-BoldIt
 	\vspace{-3mm}
 	\paragraphstyle
 }{%
-\par
-\vspace{2mm}
+	\par
+	\vspace{2mm}
 }
 
 % Define an environment for cventry
@@ -529,7 +560,7 @@ BoldItalicFont=*-BoldIt
 	\vspace{\acvSectionContentTopSkip}
 	\begin{center}
 	}{%
-\end{center}
+	\end{center}
 }
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
@@ -550,7 +581,7 @@ BoldItalicFont=*-BoldIt
 \newenvironment{cvsubentries}{%
 	\begin{center}
 	}{%
-\end{center}
+	\end{center}
 }
 % Define a subentry of cv information
 % Usage: \cvsubentry{<position>}{<title>}{<date>}{<description>}
@@ -560,7 +591,7 @@ BoldItalicFont=*-BoldIt
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
 		\setlength\leftskip{0.2cm}
 		\subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
-		{\subentrydatestyle{#3}}{} 
+		{\subentrydatestyle{#3}}{}
 		\ifthenelse{\equal{#1}{}}
 		{}
 		{\subentrypositionstyle{#1} & \subentrydatestyle{#3} \\}
@@ -579,8 +610,8 @@ BoldItalicFont=*-BoldIt
 		\setlength{\extrarowheight}{0pt}
 		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
 		}{%
-	\end{tabular*}
-\end{center}
+		\end{tabular*}
+	\end{center}
 }
 % Define a line of cv information(honor, award or something else)
 % Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
@@ -597,8 +628,8 @@ BoldItalicFont=*-BoldIt
 		\setlength{\extrarowheight}{0pt}
 		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{\textwidth * \real{0.9}}}
 		}{%
-	\end{tabular*}
-\end{center}
+		\end{tabular*}
+	\end{center}
 }
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
@@ -614,9 +645,9 @@ BoldItalicFont=*-BoldIt
 			\setlength{\parskip}{0pt}
 			\renewcommand{\labelitemi}{\bullet}
 		}{%
-	\end{itemize}
-\end{justify}
-\vspace{-4.0mm}
+		\end{itemize}
+	\end{justify}
+	\vspace{-4.0mm}
 }
 
 
@@ -654,7 +685,7 @@ BoldItalicFont=*-BoldIt
 	\ifthenelse{\isundefined{\@lettertitle}}
 	{}
 	{\lettertitlestyle{\@lettertitle} \\}
-	\lettertextstyle{\@letteropening} 
+	\lettertextstyle{\@letteropening}
 }
 
 % Define a closing of the cover letter

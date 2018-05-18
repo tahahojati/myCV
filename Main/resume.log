@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (MiKTeX 2.9.6500 64-bit) (preloaded format=xelatex 2018.1.4)  17 MAY 2018 09:59
+This is XeTeX, Version 3.14159265-2.6-0.99998 (MiKTeX 2.9.6500 64-bit) (preloaded format=xelatex 2018.1.4)  18 MAY 2018 10:06
 entering extended mode
 **./resume.tex
 (resume.tex
@@ -1271,24 +1271,6 @@ Overfull \hbox (72.07248pt too wide) in alignment at lines 2--18
 [] [] 
  []
 
-) (resume/projects.tex
-LaTeX Font Info:    Font shape `TU/SourceSansPro(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 11.
-LaTeX Font Info:    Font shape `TU/SourceSansPro(1)/m/sc' will be
-(Font)              scaled to size 8.0pt on input line 11.
-
-
-LaTeX Font Warning: Font shape `TU/FontAwesome(1)/m/sc' undefined
-(Font)              using `TU/FontAwesome(1)/m/n' instead on input line 11.
-
-LaTeX Font Info:    Font shape `TU/SourceSansPro(2)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 11.
-LaTeX Font Info:    Font shape `TU/SourceSansPro(2)/m/sl' in size <8> not avail
-able
-(Font)              Font shape `TU/SourceSansPro(2)/m/it' tried instead on inpu
-t line 11.
-LaTeX Font Info:    Font shape `TU/SourceSansPro(2)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 11.
 ) (resume/experience.tex
 LaTeX Font Info:    Font shape `TU/SourceSansPro(2)/m/sl' in size <9> not avail
 able
@@ -1296,6 +1278,18 @@ able
 t line 16.
 LaTeX Font Info:    Font shape `TU/SourceSansPro(2)/m/it' will be
 (Font)              scaled to size 9.0pt on input line 16.
+LaTeX Font Info:    Font shape `TU/SourceSansPro(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 16.
+LaTeX Font Info:    Font shape `TU/SourceSansPro(1)/m/sc' will be
+(Font)              scaled to size 8.0pt on input line 16.
+LaTeX Font Info:    Font shape `TU/SourceSansPro(2)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 16.
+LaTeX Font Info:    Font shape `TU/SourceSansPro(2)/m/sl' in size <8> not avail
+able
+(Font)              Font shape `TU/SourceSansPro(2)/m/it' tried instead on inpu
+t line 16.
+LaTeX Font Info:    Font shape `TU/SourceSansPro(2)/m/it' will be
+(Font)              scaled to size 8.0pt on input line 16.
 
 Overfull \hbox (2.92001pt too wide) in paragraph at lines 16--73
    [] 
@@ -1321,14 +1315,19 @@ Overfull \hbox (2.92001pt too wide) in paragraph at lines 16--73
    [] 
  []
 
-[1
 
-]
 Overfull \hbox (2.92001pt too wide) in paragraph at lines 84--97
    [] 
  []
 
-) (resume/honors.tex
+) (resume/projects.tex
+
+LaTeX Font Warning: Font shape `TU/FontAwesome(1)/m/sc' undefined
+(Font)              using `TU/FontAwesome(1)/m/n' instead on input line 12.
+
+[1
+
+]) (resume/honors.tex
 LaTeX Font Info:    Font shape `TU/SourceSansPro(1)/m/n' will be
 (Font)              scaled to size 9.0pt on input line 8.
 LaTeX Font Info:    Font shape `TU/SourceSansPro(1)/bx/n' will be
@@ -1367,10 +1366,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  37705 strings out of 427839
  735354 string characters out of 3152539
- 948121 words of memory out of 3000000
+ 949121 words of memory out of 3000000
  41222 multiletter control sequences out of 15000+200000
  532714 words of font info for 81 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 72i,11n,89p,10427b,430s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 72i,12n,89p,10427b,430s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on resume.pdf (2 pages).
